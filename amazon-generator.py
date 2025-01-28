@@ -58,7 +58,7 @@ product_title = st.text_input("商品名", placeholder="例: ワイヤレスイ�
 
 model_choice = st.radio(
     "モデルを選択してください:",
-    options=["GPT-4o-mini", "Gemini", "アーロンモデル終号機", "アーロンモデル零号機", "アーロンモデル初号機"],
+    options=["GPT-4o-mini(使えない)", "Gemini", "アーロンモデル終号機", "アーロンモデル零号機", "アーロンモデル初号機"],
 )
 
 # Generate description button
@@ -77,7 +77,7 @@ if st.button("商品説明を生成"):
                     time.sleep(0.5)  # Adjust speed for effect
 
             # Generate description based on selected model
-            if model_choice == "GPT-4o-mini":
+            if model_choice == "GPT-4o-mini(使えない)":
                 description = generate_openai(f"商品名: {product_title}\n詳細:", openai_client, "gpt-4o-mini")
             elif model_choice == "Gemini":
                 description = generate_gemini_base(f"商品名: {product_title}\n詳細:", gemini_model)
@@ -101,7 +101,7 @@ if st.button("商品説明を生成"):
             # Display uploaded image only if provided
             if uploaded_image:
                 st.subheader("アップロードされた画像:")
-                st.image(uploaded_image, caption="アップロードされた商品画像", width=300, use_column_width=False)
+                st.image(uploaded_image, caption="アップロードされた商品画像", width=300, use_container_width=False)
 
             # Add to history
             st.session_state.history.append({
