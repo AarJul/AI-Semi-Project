@@ -58,7 +58,7 @@ product_title = st.text_input("商品名", placeholder="例: ワイヤレスイ�
 
 model_choice = st.radio(
     "モデルを選択してください:",
-    options=["GPT-4o-mini(使えない)", "Gemini", "アーロンモデル終号機", "アーロンモデル零号機", "アーロンモデル初号機"],
+    options=["GPT-4o-mini(クレジットにより使用不可可能性あり)", "Gemini", "アーロンモデル終号機", "アーロンモデル零号機", "アーロンモデル初号機"],
 )
 
 # Generate description button
@@ -77,7 +77,7 @@ if st.button("商品説明を生成"):
                     time.sleep(0.5)  # Adjust speed for effect
 
             # Generate description based on selected model
-            if model_choice == "GPT-4o-mini(使えない)":
+            if model_choice == "GPT-4o-mini(クレジットにより使用不可の可能性あり)":
                 description = generate_openai(f"商品名: {product_title}\n詳細:", openai_client, "gpt-4o-mini")
             elif model_choice == "Gemini":
                 description = generate_gemini_base(f"商品名: {product_title}\n詳細:", gemini_model)
